@@ -53,9 +53,9 @@ cd ../client
 docker build .
 </pre>
 And tag <code>cars-client</code> container image to match <a href="https://github.com/mikarinneoracle/pods-communication-easy-with-OCI-VCN-native-Kubernetes/blob/main/client/oke.yaml#LL19C16-L19C54">the line 19</a> in client OKE.yaml
-
+<br>
 <p>
-After building login to OCIR using <code>docker login</code> and push containers to the registry:
+After building login to OCIR using <code>docker login</code> and push containers to the repositories:
 <pre>
 docker push &lt;REGION&gt;.ocir.io/&lt;TENANCY NAMESPACE&gt;/cars-api:1
 docker push &lt;REGION&gt;.ocir.io/&lt;TENANCY NAMESPACE&gt;/cars-client:1
