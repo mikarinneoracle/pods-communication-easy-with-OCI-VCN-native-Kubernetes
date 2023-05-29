@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cars-api-deployment
+  labels:
+    app: cars-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cars-api
+  template:
+    metadata:
+      labels:
+        app: cars-api
+    spec:
+      containers:
+      - name: cars-api
+        image: &lt;REGION&gt;.ocir.io/&lt;TENANCY NAMESPACE&gt/cars-api:1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000

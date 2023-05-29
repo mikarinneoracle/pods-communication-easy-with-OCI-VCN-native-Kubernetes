@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cars-client-deployment
+  labels:
+    app: cars-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cars-client
+  template:
+    metadata:
+      labels:
+        app: cars-client
+    spec:
+      containers:
+      - name: cars-client
+        image: &lt;REGION&gt;.ocir.io/&lt;TENANCY NAMESPACE&gt/cars-client:1
+        imagePullPolicy: Always
+        env:
+        - name: URL
+          value: "http://10.0.1.81:3000/cars"
