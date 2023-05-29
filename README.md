@@ -55,8 +55,8 @@ And then the created <code>cars-client</code> container image to match <a href="
 <p>
 After building login to OCIR using <code>docker login</code> and push containers to the registry:
 <pre>
-docker push <&lt;REGION&gt;.ocir.io/&lt;TENANCY NAMESPACE&gt;/cars-api:1
-docker push <&lt;REGION&gt;.ocir.io/&lt;TENANCY NAMESPACE&gt;/cars-client:1
+docker push &lt;REGION&gt;.ocir.io/&lt;TENANCY NAMESPACE&gt;/cars-api:1
+docker push &lt;REGION&gt;.ocir.io/&lt;TENANCY NAMESPACE&gt;/cars-client:1
 </pre>
 
 ## Access OKE cluster and deploy containers for testing
@@ -91,17 +91,36 @@ NAME                                  READY   STATUS    RESTARTS   AGE   IP     
 cars-api-deployment-ff4d7f67f-zv99w   1/1     Running   0          94s   10.0.1.10   10.0.1.158   <none>           &lt;none&gt;
 </pre>
 <p>
-Copy the <code>IP</code> from the output and replace the &lt;IP&gt; with it on <a href="https://github.com/mikarinneoracle/pods-communication-easy-with-OCI-VCN-native-Kubernetes/blob/main/client/oke.yaml#L23">line 23</a> using Cloud Shell Code Editor or nano shell editor and then deploy the <code>cars-client</code> container:
+Copy the <code>IP</code> from the output and replace the &lt;IP&gt; with it on <a href="https://github.com/mikarinneoracle/pods-communication-easy-with-OCI-VCN-native-Kubernetes/blob/main/client/oke.yaml#L23">line 23</a> using Cloud Shell Code Editor or nano shell editor and then deploy the <code>cars-client</code> container (in this case the IP equals to <b>10.0.1.10</b>):
 <pre>
 cd ../client
 nano oke.yaml
 kubectl create -f oke.yaml
 </pre>
 
+See the pods status by doing <code>kubectl get pods</code> that should return like:
+<pre>
+NAME                                      READY   STATUS      RESTARTS   AGE
+cars-api-deployment-ff4d7f67f-zv99w       1/1     Running     0          10m
+cars-client-deployment-75d7c6ff8f-6pbbn   0/1     Completed   3          2m3s
+</pre>
 
-
-<p>
+See the log for the <code>cars-client</code> container to see if the inter-pod call was succesful:
+<pre>
+kubectl logs cars-client-deployment-75d7c6ff8f-6pbbn 
+2023-05-29T12:44:21.684181211Z stderr F   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+2023-05-29T12:44:21.684207631Z stderr F                                  Dload  Upload   Total   Spent    Left  Speed
+100    87  100    87    0     0   6528      0 --:--:-- --:--:-- --:--:--  6692
+2023-05-29T12:44:21.707228175Z stdout P <b>{"cars":[{"id":"1","name":"Toyota"},{"id":"2","name":"BMW"},{"id":"3","name":"Volvo"}]}</b>
+</pre>
+In the command above replace the pod name <code>cars-client-deployment-75d7c6ff8f-6pbbn </code> with actual one.
 
 ## Finally
 
-Finally delete the OKE cluster and the VCN created for this example.
+Delete deployments:
+<pre>
+kubectl delete deployment cars-client-deployment  
+kubectl delete deployment cars-api-deployment  
+</pre>
+
+And then delete the OKE cluster and the VCN created for this example.
