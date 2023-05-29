@@ -16,8 +16,8 @@ spec:
     spec:
       containers:
       - name: cars-client
-        image: ams.ocir.io/frsxwtjslf35/cars-client:1
+        image: <REGION>.ocir.io/<TENANCY NAMESPACE>/cars-client:1
         imagePullPolicy: Always
         env:
         - name: URL
-          value: "http://10.0.1.81:3000/cars"
+          value: "http://10.0.1.175:3000/cars"

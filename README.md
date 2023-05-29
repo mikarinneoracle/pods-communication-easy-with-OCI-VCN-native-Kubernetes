@@ -9,7 +9,7 @@ Let's look at this example.
 ## Create OCI VCN
 
 Using Cloud UI Networking and the VCN Wizard to create a VCN with Internet access. 
-After VCN is created add a rule to the <code>private subnet security list</code> to <code>>allow traffic from all ports and addresses</code>. (We can use this rule while our testing, in real life this would be likely considered being too open.)
+After VCN is created add a rule to the <code>private subnet security list</code> to <code>allow traffic from all ports and addresses</code>. (We can use this rule while our testing, in real life this would be likely considered being too open.)
 
 ## Create OKE cluster using the OCI native VCN
 
@@ -28,7 +28,7 @@ After cluster creating click <code>Edit button</code> and Assign Public API endp
     
 ## Build containers and push them to registry (OCIR)
 
-Using Cloud UI Containers create two public repositories for the containers to be run:
+Using Cloud UI Containers create two public repositories for the container images in the desired <code>compartment</code>:
 - <code>cars-api</code>
 - <code>cars-client</code>
 
@@ -41,11 +41,22 @@ git clone https://github.com/mikarinneoracle/pods-communication-easy-with-OCI-VC
 <p>
 Then build containers:
 <pre>
+cd server
+docker build .
 </pre>
+Tag the created <code>cars-api</code> container image to match <a href="https://github.com/mikarinneoracle/pods-communication-easy-with-OCI-VCN-native-Kubernetes/blob/main/server/oke.yaml#L19">the line 19</a> in server OKE.yaml
+Do the same for the client:
+<pre>
+cd ../client
+docker build .
+</pre>
+And then the created <code>cars-client</code> container image to match <a href="https://github.com/mikarinneoracle/pods-communication-easy-with-OCI-VCN-native-Kubernetes/blob/main/client/oke.yaml#LL19C16-L19C54">the line 19</a> in client OKE.yaml
 
 <p>
-After building push conatiners to the registry:
+After building login to OCIR using <code>docker login</code> and push containers to the registry:
 <pre>
+docker push <&lt;REGION&gt;.ocir.io/&lt;TENANCY NAMESPACE&gt;/cars-api:1
+docker push <&lt;REGION&gt;.ocir.io/&lt;TENANCY NAMESPACE&gt;/cars-client:1
 </pre>
 
 ## Access OKE cluster and deploy containers for testing
@@ -63,11 +74,8 @@ NAME         STATUS   ROLES    AGE   VERSION
 10.0.1.132   Ready    &lt;none&gt;   1m    v1.26.2-0.2.169-230516185737
 </pre>
 
-
 <p>
-    
 
-In Cloud Shell create the OKE cluster access by copying the oci cli command by clicking the access cluster button and then pasting it to Cloud Shell.
 
 <p>
 
