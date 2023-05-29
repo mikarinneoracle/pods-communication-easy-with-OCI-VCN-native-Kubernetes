@@ -47,7 +47,7 @@ docker build .
 </pre>
 Tag the created <code>cars-api</code> container image to match <a href="https://github.com/mikarinneoracle/pods-communication-easy-with-OCI-VCN-native-Kubernetes/blob/main/server/oke.yaml#L19">the line 19</a> in server OKE.yaml
 <p>
-Also replace the <b>&lt;REGION&gt;</b> and <b>&lt;TENANCY NAMESPACE&gt;</b> with the actual ones using Cloud Shell Code Editor or editor like nano in Cloud Shell.
+Here replace the <b>&lt;REGION&gt;</b> and <b>&lt;TENANCY NAMESPACE&gt;</b> with the actual ones.
 <br>
 <br>
 Do the same for the client:
@@ -57,7 +57,7 @@ docker build .
 </pre>
 And tag <code>cars-client</code> container image to match <a href="https://github.com/mikarinneoracle/pods-communication-easy-with-OCI-VCN-native-Kubernetes/blob/main/client/oke.yaml#LL19C16-L19C54">the line 19</a> in client OKE.yaml
 <p>
-Like earlier also replace the <b>&lt;REGION&gt;</b> and <b>&lt;TENANCY NAMESPACE&gt;</b> with the actual ones using Cloud Shell Code Editor or editor like nano in Cloud Shell.
+Like earlier replace the <b>&lt;REGION&gt;</b> and <b>&lt;TENANCY NAMESPACE&gt;</b> with the actual ones.
 <br>
 <br>
 After building login to OCIR using <code>docker login</code> and push containers to the repositories:
@@ -82,7 +82,7 @@ NAME         STATUS   ROLES    AGE   VERSION
 
 ## Deploy you containers to OKE
 
-First deploy the <code>cars-api</code> container in Cloud Shell:
+First deploy the <code>cars-api</code> container in Cloud Shell. Before that, however, replace the <b>&lt;REGION&gt;</b> and <b>&lt;TENANCY NAMESPACE&gt;</b> with the actual ones using Cloud Shell Code Editor or editor like nano in Cloud Shell.
 <pre>
 cd ../server
 kubectl create -f oke.yaml
@@ -98,7 +98,7 @@ NAME                                  READY   STATUS    RESTARTS   AGE   IP     
 cars-api-deployment-ff4d7f67f-zv99w   1/1     Running   0          94s   10.0.1.10   10.0.1.158   <none>           &lt;none&gt;
 </pre>
 <p>
-Copy the <code>IP</code> from the output and replace the &lt;IP&gt; with it on <a href="https://github.com/mikarinneoracle/pods-communication-easy-with-OCI-VCN-native-Kubernetes/blob/main/client/oke.yaml#L23">line 23</a> using Cloud Shell Code Editor or nano shell editor and then deploy the <code>cars-client</code> container (in this case the IP equals to <b>10.0.1.10</b>):
+Copy the <code>IP</code> from the output and replace the &lt;IP&gt; with it on <a href="https://github.com/mikarinneoracle/pods-communication-easy-with-OCI-VCN-native-Kubernetes/blob/main/client/oke.yaml#L23">line 23</a> using Cloud Shell Code Editor or nano shell editor and then deploy the <code>cars-client</code> container (in this case the IP equals to <b>10.0.1.10</b>). Like earlier also replace the <b>&lt;REGION&gt;</b> and <b>&lt;TENANCY NAMESPACE&gt;</b> with the actual ones using Cloud Shell Code Editor or editor like nano in Cloud Shell.
 <pre>
 cd ../client
 nano oke.yaml
