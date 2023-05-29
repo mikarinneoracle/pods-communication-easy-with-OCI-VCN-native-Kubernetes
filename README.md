@@ -28,7 +28,7 @@ After cluster creating click <code>Edit button</code> and Assign Public API endp
     
 ## Build containers and push them to registry (OCIR)
 
-Using Cloud UI Containers create two public repositories for the container images in the desired <code>compartment</code>:
+Using Cloud UI Containers create two <code>public</code> repositories for the container images in the desired <code>compartment</code>:
 - <code>cars-api</code>
 - <code>cars-client</code>
 
@@ -68,13 +68,36 @@ oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.eu-amsterdam-1.a
 </pre>
 
 Test access by doing <code>kubectl get nodes</code> that should return like:
-
 <pre>
 NAME         STATUS   ROLES    AGE   VERSION
 10.0.1.132   Ready    &lt;none&gt;   1m    v1.26.2-0.2.169-230516185737
 </pre>
 
+## Deploy you containers to OKE
+
+First deploy the <code>cars-api</code> container in Cloud Shell:
+<pre>
+cd ../server
+kubectl create -f oke.yaml
+</pre>
+
+Get the IP address of the created pod by doing:
+<pre>
+kubectl get pods -o wide
+</pre>
+That should return like:
+<pre>
+NAME                                  READY   STATUS    RESTARTS   AGE   IP          NODE         NOMINATED NODE   READINESS GATES
+cars-api-deployment-ff4d7f67f-zv99w   1/1     Running   0          94s   10.0.1.10   10.0.1.158   <none>           &lt;none&gt;
+</pre>
 <p>
+Copy the <code>IP</code> from the output and replace the &lt;IP&gt; with it on <a href="https://github.com/mikarinneoracle/pods-communication-easy-with-OCI-VCN-native-Kubernetes/blob/main/client/oke.yaml#L23">line 23</a> using Cloud Shell Code Editor or nano shell editor and then deploy the <code>cars-client</code> container:
+<pre>
+cd ../client
+nano oke.yaml
+kubectl create -f oke.yaml
+</pre>
+
 
 
 <p>

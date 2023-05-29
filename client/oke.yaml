@@ -20,4 +20,4 @@ spec:
         imagePullPolicy: Always
         env:
         - name: URL
-          value: "http://10.0.1.175:3000/cars"
+          value: "http://<IP>:3000/cars"
