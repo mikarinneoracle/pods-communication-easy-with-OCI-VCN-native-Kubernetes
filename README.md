@@ -47,7 +47,7 @@ docker build .
 </pre>
 Tag the created <code>cars-api</code> container image to match <a href="https://github.com/mikarinneoracle/pods-communication-easy-with-OCI-VCN-native-Kubernetes/blob/main/server/oke.yaml#L19">the line 19</a> in server OKE.yaml
 <p>
-Also replace the <b>&lt;REGION&gt;</b> and <b>&lt;TENANCY NAMESPACE&gt;</b> with the actual ones.
+Also replace the <b>&lt;REGION&gt;</b> and <b>&lt;TENANCY NAMESPACE&gt;</b> with the actual ones using Cloud Shell Code Editor or nano in shell.
 <br>
 <br>
 Do the same for the client:
@@ -56,7 +56,8 @@ cd ../client
 docker build .
 </pre>
 And tag <code>cars-client</code> container image to match <a href="https://github.com/mikarinneoracle/pods-communication-easy-with-OCI-VCN-native-Kubernetes/blob/main/client/oke.yaml#LL19C16-L19C54">the line 19</a> in client OKE.yaml
-
+<p>
+Like earlier also replace the <b>&lt;REGION&gt;</b> and <b>&lt;TENANCY NAMESPACE&gt;</b> with the actual ones using Cloud Shell Code Editor or nano in shell.
 <br>
 <br>
 After building login to OCIR using <code>docker login</code> and push containers to the repositories:
