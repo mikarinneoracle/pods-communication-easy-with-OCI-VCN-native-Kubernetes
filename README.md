@@ -66,7 +66,7 @@ docker push &lt;REGION&gt;.ocir.io/&lt;TENANCY NAMESPACE&gt;/cars-api:1
 docker push &lt;REGION&gt;.ocir.io/&lt;TENANCY NAMESPACE&gt;/cars-client:1
 </pre>
 
-## Access OKE cluster and deploy containers for testing
+## Access OKE cluster
 
 In Cloud Shell create the OKE cluster API endpoint access by using the <code>oci cli command</code> first by clicking the <code>Access Cluster button</code> and then copying the access using public endpoint option and pasting it to Cloud Shell e.g.
 
