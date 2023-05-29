@@ -80,7 +80,7 @@ NAME         STATUS   ROLES    AGE   VERSION
 10.0.1.132   Ready    &lt;none&gt;   1m    v1.26.2-0.2.169-230516185737
 </pre>
 
-## Deploy container images to OKE and explore the results in client container pod's log
+## Deploy container images to OKE and explore the results
 
 First deploy the <code>cars-api</code> container in Cloud Shell. Before that, however, replace the <b>&lt;REGION&gt;</b> and <b>&lt;TENANCY NAMESPACE&gt;</b> with the actual ones using Cloud Shell Code Editor or editor like nano in Cloud Shell in <a href="https://github.com/mikarinneoracle/pods-communication-easy-with-OCI-VCN-native-Kubernetes/blob/main/server/oke.yaml#L19">oke.yaml</a>
 <pre>
@@ -111,6 +111,8 @@ NAME                                      READY   STATUS      RESTARTS   AGE
 cars-api-deployment-ff4d7f67f-zv99w       1/1     Running     0          10m
 cars-client-deployment-75d7c6ff8f-6pbbn   0/1     Completed   3          2m3s
 </pre>
+
+### Explore the result in client container pod's log
 
 See the log for the <code>cars-client</code> container to see if the inter-pod REST call was succesful:
 <pre>
