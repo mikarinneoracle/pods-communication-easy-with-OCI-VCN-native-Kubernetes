@@ -1,4 +1,4 @@
-# How to access pods in the same OKE cluster subnet without using LB (or other service) just by using OCI Native networking
+## How to access pods in the same OKE cluster subnet without using LB (or other service) just by using OCI Native networking
 
 OCI Networking is very strong and today you can create OCI Kubernetes (OKE) cluster
 using OCI native VCN. That makes pods inter-communication simple just by using
