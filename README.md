@@ -116,7 +116,7 @@ kubectl logs cars-client-deployment-75d7c6ff8f-6pbbn
 100    87  100    87    0     0   6528      0 --:--:-- --:--:-- --:--:--  6692
 2023-05-29T12:44:21.707228175Z stdout P <b>{"cars":[{"id":"1","name":"Toyota"},{"id":"2","name":"BMW"},{"id":"3","name":"Volvo"}]}</b>
 </pre>
-In the command above replace the pod name <code>cars-client-deployment-75d7c6ff8f-6pbbn </code> with actual one.
+In the command above replace the pod name <code>cars-client-deployment-75d7c6ff8f-6pbbn </code> with the actual one.
 <p>
 The REST response <code>{"cars":[{"id":"1","name":"Toyota"},{"id":"2","name":"BMW"},{"id":"3","name":"Volvo"}]}</code> should be visible in the log.
 <p>
