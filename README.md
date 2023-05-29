@@ -36,6 +36,7 @@ Using Cloud UI Containers create two <code>public</code> repositories for the co
 Open <code>Cloud Shell</code> and clone this github repo to pull the containers source code:
 <pre>
 git clone https://github.com/mikarinneoracle/pods-communication-easy-with-OCI-VCN-native-Kubernetes.git
+cd pods-communication-easy-with-OCI-VCN-native-Kubernetes
 </pre>
 
 <p>
