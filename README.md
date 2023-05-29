@@ -13,7 +13,7 @@ After VCN is created add a rule to the <code>private subnet security list</code>
 
 ## Create OKE cluster using the OCI native VCN
 
-Using Cloud UI create a new OKE cluster with the <code>Custom create</code> option and use the following setting for the cluster creation:
+Using Cloud UI create a new OKE cluster with the <code>Custom create</code> option and use the following settings for the cluster creation:
 
 - <b>VCN native</b> pod networking
 - Select the VCN created previously
