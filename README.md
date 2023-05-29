@@ -114,6 +114,8 @@ kubectl logs cars-client-deployment-75d7c6ff8f-6pbbn
 2023-05-29T12:44:21.707228175Z stdout P <b>{"cars":[{"id":"1","name":"Toyota"},{"id":"2","name":"BMW"},{"id":"3","name":"Volvo"}]}</b>
 </pre>
 In the command above replace the pod name <code>cars-client-deployment-75d7c6ff8f-6pbbn </code> with actual one.
+<p>
+Please note that since the client container exists after the <a href="https://github.com/mikarinneoracle/pods-communication-easy-with-OCI-VCN-native-Kubernetes/blob/main/client/Dockerfile#L5">curl command</a> it will keep on restarting until the pod is killed when using node pool type <b>Virtual</b>. (This won't happen using managed nodes.)
 
 ## Finally
 
