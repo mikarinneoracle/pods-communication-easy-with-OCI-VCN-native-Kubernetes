@@ -45,6 +45,8 @@ cd server
 docker build .
 </pre>
 Tag the created <code>cars-api</code> container image to match <a href="https://github.com/mikarinneoracle/pods-communication-easy-with-OCI-VCN-native-Kubernetes/blob/main/server/oke.yaml#L19">the line 19</a> in server OKE.yaml
+</pre>
+<p>
 Do the same for the client:
 <pre>
 cd ../client
