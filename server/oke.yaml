@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: cars-api
-        image: &lt;REGION&gt;.ocir.io/&lt;TENANCY NAMESPACE&gt/cars-api:1
+        image: <REGION>.ocir.io/<TENANCY NAMESPACE>/cars-api:1
         imagePullPolicy: Always
         ports:
         - containerPort: 3000

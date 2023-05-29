@@ -1,4 +1,4 @@
-# How to access pods in OKE in the same subnet with using LB (or other service)
+# How to access pods in the same OKE cluster subnet without using LB (or other service) just by using OCI Native networking
 
 OCI Networking is very strong and today you can create OCI Kubernetes (OKE) cluster
 using OCI native VCN. That makes pods inter-communication simple just by using
@@ -35,7 +35,7 @@ Using Cloud UI Containers create two public repositories for the containers to b
 <p>
 Open <code>Cloud Shell</code> and clone this github repo to pull the containers source code:
 <pre>
-git clone 
+git clone https://github.com/mikarinneoracle/pods-communication-easy-with-OCI-VCN-native-Kubernetes.git
 </pre>
 
 <p>
