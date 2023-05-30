@@ -126,7 +126,7 @@ In the command above replace the pod name <code>cars-client-deployment-75d7c6ff8
 <p>
 The REST API JSON response <code>{"cars":[{"id":"1","name":"Toyota"},{"id":"2","name":"BMW"},{"id":"3","name":"Volvo"}]}</code> should be visible in the log.
 <p>
-Please note that since the client container exists after the <a href="https://github.com/mikarinneoracle/pods-communication-easy-with-OCI-VCN-native-Kubernetes/blob/main/client/Dockerfile#L5">curl command</a> it will keep on restarting until the pod is killed when using node pool type <b>Virtual</b>. (This won't happen using managed nodes.)
+Please note that since the client container exits after the <a href="https://github.com/mikarinneoracle/pods-communication-easy-with-OCI-VCN-native-Kubernetes/blob/main/client/Dockerfile#L5">curl command</a> it will keep on restarting until the pod is killed when using node pool type <b>Virtual</b>. (This won't happen using managed nodes.)
 
 ## Finally
 
