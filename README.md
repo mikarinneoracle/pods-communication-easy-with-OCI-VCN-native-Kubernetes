@@ -19,7 +19,7 @@ Using Cloud UI create a new OKE cluster with the <code>Custom create</code> opti
 - Select the VCN created previously
 - Use the VCN Public Subnet for LB (even we are not using this)
 - Use the VCN Public Subnet for Kubernetes API Endpoint (for the kubectl command line utility)
-- Node Pool type <b>Virtual</b> (can also use Managed if preferred)
+- Node Pool type <b>Virtual</b> (can use Managed instead if preferred)
 - Node count 1
 - Use the VCN Private Subnet for Pod communication
 - Use the VCN Private Subnet for Virtual Node communication
